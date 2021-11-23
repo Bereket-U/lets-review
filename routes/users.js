@@ -11,8 +11,5 @@ router.get("/login", userCtrl.login);
 router.get("/register", userCtrl.register);
 
 /* GET register  page. */
-router.post("/register", function (req, res, next) {
-  console.log(req.body);
-  res.send(req.body);
-});
+router.post("/register", userCtrl.newUser);
 module.exports = router;
