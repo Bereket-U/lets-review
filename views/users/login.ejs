@@ -1,9 +1,10 @@
 <%- include('partials/header') %>
 <h1>Login</h1>
-<form>
-  <%= typeof message != 'undefined' ? message: '' %>
-  <input type="email" placeholder="Email" />
-  <input type="password" placeholder="Password" />
+<%- include('partials/registerMsg') %>
+<form action="/users/login" method="POST">
+  <%= typeof message != 'undefined' ? message: '' %> <br />
+  <input type="email" name="email" placeholder="Email" />
+  <input type="password" name="password" placeholder="Password" />
   <button type="submit">Login</button>
 </form>
 <%- include('partials/footer') %>
