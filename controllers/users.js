@@ -3,7 +3,7 @@ const bcrypt = require("bcryptjs");
 const passport = require("passport");
 
 function index(req, res, next) {
-  res.render("users/index", { title: "User index" });
+  res.render("users/index", { username: req.user.name });
 }
 
 function login(req, res, next) {
