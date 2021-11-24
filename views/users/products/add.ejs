@@ -1,4 +1,26 @@
 <%- include('../partials/users/header') %>
 <h1>Add New product</h1>
+  <%= typeof message != 'undefined' ? message: '' %> <br />
+  <form method="post" action="/users/products/create">
+    <input type="text" name="name" placeholder="Product Name" /> <br />
+    <input type="number" name="price" placeholder="Product Price" /><br />
+    <select name="category">
+      <option value="">Select Category</option>
+      <option value="Smartphone">Smartphone</option>
+      <option value="Tablet">Tablets</option>
+      <option value="Laptop">Laptop</option>
+      <option value="Desktop">Desktop</option>
+      <option value="Smart Tv">Smart Tv</option></select
+    ><br />
+    <input type="file" name="image" id="image" /><br />
+    <textarea
+      name="discription"
+      id="discription"
+      placeholder="Please enter product discription"
+    ></textarea
+    ><br />
 
-<%- include('../partials/users/footer') %>
+    <button>Add Product</button>
+  </form>
+  <%- include('../partials/users/footer') %>
+</h1>
