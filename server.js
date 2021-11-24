@@ -4,6 +4,13 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 
+const flash = require("connect-flash");
+const session = require("express-session");
+
+const passport = require("passport");
+
+// passport config
+require("./config/passport")(passport);
 // connect to the database with Mongoose
 require("./config/database");
 
@@ -21,6 +28,27 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
+
+// express session
+app.use(
+  session({
+    secret: "letsreview",
+    resave: false,
+    saveUninitialized: true,
+  })
+);
+// Passport middleware
+app.use(passport.initialize());
+app.use(passport.session());
+
+// connect flash
+app.use(flash());
+
+//Global Varriabls
+app.use(function (req, res, next) {
+  res.locals.error = req.flash("error");
+  next();
+});
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
