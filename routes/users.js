@@ -1,9 +1,10 @@
 var express = require("express");
 var router = express.Router();
 const userCtrl = require("../controllers/users");
+const { ensureAuthenticated } = require("../config/auth");
 
 /* GET users home listing. */
-router.get("/", userCtrl.index);
+router.get("/", ensureAuthenticated, userCtrl.index);
 
 /* GET login  page. */
 router.get("/login", userCtrl.login);
