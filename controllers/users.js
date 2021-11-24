@@ -1,12 +1,16 @@
 const User = require("../models/user");
 const bcrypt = require("bcryptjs");
+const passport = require("passport");
 
 function index(req, res, next) {
   res.render("users/index", { title: "User index" });
 }
 
 function login(req, res, next) {
-  res.render("users/login", { title: "Login" });
+  res.render("users/login", {
+    title: "Login",
+    message: req.flash("message"),
+  });
 }
 
 function register(req, res, next) {
@@ -59,10 +63,11 @@ function newUser(req, res, next) {
             newUser.password = hash;
             // save user
             newUser.save().then(function (user) {
-              res.render("users/login", {
-                message:
-                  "Congratulations, your account has been created, Please Login to continue",
-              });
+              req.flash(
+                "message",
+                "Congratulations, your account has been created, Please Login to continue"
+              );
+              res.redirect("/users/login");
             });
           });
         });
@@ -70,10 +75,24 @@ function newUser(req, res, next) {
     });
   }
 }
+function loginPassport(req, res, next) {
+  passport.authenticate("local", {
+    successRedirect: "/users/",
+    failureRedirect: "/users/login",
+    failureFlash: true,
+  })(req, res, next);
+}
 
+function logout(req, res, next) {
+  req.logout();
+  req.flash("message", "You have successfully logged out ");
+  res.redirect("/users/login");
+}
 module.exports = {
   index,
   login,
   register,
   newUser,
+  loginPassport,
+  logout,
 };
