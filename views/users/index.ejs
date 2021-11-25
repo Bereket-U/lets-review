@@ -1,4 +1,18 @@
 <%- include('partials/users/header') %>
 
 <h2>Welcome <%= username%></h2>
+
+<% products.forEach(function(p){ %>
+<ul>
+  <li><%= p.name%></li>
+  <li><%= p.price%></li>
+  <li><%= p.category%></li>
+  <li><%= p.image%></li>
+  <li><%= p.discription%></li>
+</ul>
+
+<%})%>
+
+<p><%= test%></p>
+
 <%- include('partials/users/footer') %>
