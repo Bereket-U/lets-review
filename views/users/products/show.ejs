@@ -1,0 +1,13 @@
+<%- include('../partials/users/header') %>
+<h1>View Product</h1>
+<%= typeof message != 'undefined' ? message: '' %> <br />
+
+<ul>
+  <li><%= product.name%></li>
+  <li><%= product.price%></li>
+  <li><%= product.category%></li>
+  <li><%= product.image%></li>
+  <li><%= product.discription%></li>
+</ul>
+
+<%- include('../partials/users/footer') %>

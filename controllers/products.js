@@ -1,4 +1,5 @@
 const Product = require("../models/product");
+const { param } = require("../routes");
 
 // All products
 function allProduct(req, res, next) {
@@ -29,9 +30,17 @@ function create(req, res, next) {
     console.log("added");
   });
 }
-
+// View product
+function show(req, res, next) {
+  Product.findById(req.params.id, function (err, product) {
+    console.log(product);
+    res.render("users/products/show", { product });
+  });
+  //   res.send(req.params.id);
+}
 module.exports = {
   allProduct,
   addProduct,
   create,
+  show,
 };

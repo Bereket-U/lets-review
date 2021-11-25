@@ -12,4 +12,8 @@ router.get("/add", ensureAuthenticated, productCtrl.addProduct);
 /* POST create product  page. */
 router.post("/create", productCtrl.create);
 
+/* GET view product  page. */
+
+router.get("/:id", productCtrl.show);
+
 module.exports = router;
