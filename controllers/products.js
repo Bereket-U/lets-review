@@ -7,14 +7,14 @@ function allProduct(req, res, next) {
     message: req.flash("message"),
   });
 }
-// Add product
+// Add product page
 function addProduct(req, res, next) {
   res.render("users/products/add", {
     title: "Add Products",
     message: req.flash("message"),
   });
 }
-
+// Create new product
 function create(req, res, next) {
   console.log(req.body);
   const product = new Product(req.body);
@@ -24,7 +24,7 @@ function create(req, res, next) {
       return res.redirect("/users/products/add");
     }
 
-    req.flash("message", "Congratulations, your product has been added");
+    req.flash("message", "Your product has been added");
     res.redirect("/users/products/");
     console.log("added");
   });
