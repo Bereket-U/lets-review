@@ -1,7 +1,7 @@
 <%- include('../partials/users/header') %>
 <h1>Add New product</h1>
   <%= typeof message != 'undefined' ? message: '' %> <br />
-  <form method="post" action="/users/products/create">
+  <form  method="post" action="/users/products/create/<%= typeof userId != 'undefined' ? userId: '' %>">
     <input type="text" name="name" placeholder="Product Name" /> <br />
     <input type="number" name="price" placeholder="Product Price" /><br />
     <select name="category">

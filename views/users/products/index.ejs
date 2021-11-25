@@ -1,6 +1,16 @@
 <%- include('../partials/users/header') %>
-<h1>My Products</h1>
+<h1><%= title%></h1>
 <%= typeof message != 'undefined' ? message: '' %> <br />
-<a href="/users/products/add">Add New Product</a>
+<!-- <a href="/users/products/add">Add New Product</a> -->
+<% products.forEach(function(p){ %>
+<ul>
+  <li><%= p.name%></li>
+  <li><%= p.price%></li>
+  <li><%= p.category%></li>
+  <li><%= p.image%></li>
+  <li><%= p.discription%></li>
+  <a href="/users/products/<%= p._id%>/<%= userId%>">View Product</a>
+</ul>
+<a href="/users/products/delete/<%= p._id%>/<%= userId%>">Delete</a>
 
-<%- include('../partials/users/footer') %>
+<%})%> <%- include('../partials/users/footer') %>

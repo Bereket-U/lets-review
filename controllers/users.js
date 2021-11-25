@@ -5,9 +5,11 @@ const passport = require("passport");
 
 function index(req, res, next) {
   Product.find({}, function (err, products) {
-    console.log(products);
+    // console.log(products);
+    // console.log(req.user.id);
     res.render("users/index", {
       username: req.user.name,
+      userId: req.user.id,
       products,
       title: "Home",
     });

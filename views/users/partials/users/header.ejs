@@ -9,8 +9,19 @@
   <body>
     <ul>
       <li><a href="/users/">Home</a></li>
-      <li><a href="/users/products/">My Products</a></li>
+      <!-- <li><a href="/users/products/">My Products</a></li> -->
       <li><a href="/users/logout"> Logout</a></li>
+
+      <a
+        href="/users/products/add/<%= typeof userId != 'undefined' ? userId: '' %>"
+        >Add Products</a
+      >
+      <br />
+
+      <a
+        href="/users/products/my/<%= typeof userId != 'undefined' ? userId: '' %>"
+        >My Products</a
+      >
     </ul>
   </body>
 </html>

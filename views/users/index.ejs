@@ -1,6 +1,14 @@
 <%- include('partials/users/header') %>
 
 <h2>Welcome <%= username%></h2>
+<a href="/users/products/add/<%= typeof userId != 'undefined' ? userId: '' %>"
+  >Add Products</a
+>
+<br />
+
+<a href="/users/products/my/<%= typeof userId != 'undefined' ? userId: '' %>"
+  >My Products</a
+>
 
 <% products.forEach(function(p){ %>
 <ul>
@@ -9,7 +17,7 @@
   <li><%= p.category%></li>
   <li><%= p.image%></li>
   <li><%= p.discription%></li>
-  <a href="/users/products/<%= p._id%>">View Product</a>
+  <a href="/users/products/<%= p._id%>/<%= userId%>">View Product</a>
 </ul>
 
 <%})%> <%- include('partials/users/footer') %>

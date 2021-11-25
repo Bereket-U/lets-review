@@ -17,8 +17,9 @@ const ProductSchema = new Schema(
     price: { type: String, required: true },
     discription: { type: String, required: true },
     category: { type: String, required: true },
-    image: { type: String, required: true },
+    image: { type: String },
     reviews: [reviewSchema],
+    userid: { type: Schema.Types.ObjectId, ref: "User" },
   },
   {
     timestamps: true,
