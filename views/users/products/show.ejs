@@ -1,7 +1,7 @@
 <%- include('../partials/users/header') %>
 <h1>View Product</h1>
 <%= typeof message != 'undefined' ? message: '' %> <br />
-
+<a href="/users/products/delete/<%= product._id%>/<%= userId%>">Delete</a>
 <ul>
   <li><%= product.name%></li>
   <li><%= product.price%></li>
@@ -12,7 +12,10 @@
 
 <h1>Add reviews</h1>
 
-<form method="post" action="/users/products/review/<%= product._id%>">
+<form
+  method="post"
+  action="/users/products/review/<%= product._id%>/<%= userId%>"
+>
   <select name="rating">
     <option value="">Rate</option>
     <option value="1">1</option>
