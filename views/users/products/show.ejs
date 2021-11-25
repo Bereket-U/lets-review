@@ -10,4 +10,34 @@
   <li><%= product.discription%></li>
 </ul>
 
-<%- include('../partials/users/footer') %>
+<h1>Add reviews</h1>
+
+<form method="post" action="/users/products/review/<%= product._id%>">
+  <select name="rating">
+    <option value="">Rate</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option></select
+  ><br />
+  <textarea
+    name="comment"
+    id="comment"
+    placeholder="Please add your comment"
+  ></textarea
+  ><br />
+
+  <button>Add Comment</button>
+</form>
+
+<h1>Reviews</h1>
+
+<%product.reviews.forEach(function(review){ %>
+<ul>
+  <li><%= review.rating%></li>
+  <li><%= review.comment%></li>
+  <li><%= review.updatedAt%></li>
+</ul>
+
+<%})%> <%- include('../partials/users/footer') %>

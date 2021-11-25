@@ -4,7 +4,7 @@ const { param } = require("../routes");
 // All products
 function allProduct(req, res, next) {
   res.render("users/products/index", {
-    title: "Add Products",
+    title: "All Products",
     message: req.flash("message"),
   });
 }
@@ -33,8 +33,8 @@ function create(req, res, next) {
 // View product
 function show(req, res, next) {
   Product.findById(req.params.id, function (err, product) {
-    console.log(product);
-    res.render("users/products/show", { product });
+    console.log(product.reviews);
+    res.render("users/products/show", { product, title: "View Product" });
   });
   //   res.send(req.params.id);
 }

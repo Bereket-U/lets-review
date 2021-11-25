@@ -8,8 +8,8 @@ function index(req, res, next) {
     console.log(products);
     res.render("users/index", {
       username: req.user.name,
-      test: "test",
       products,
+      title: "Home",
     });
   });
 }
@@ -22,7 +22,7 @@ function login(req, res, next) {
 }
 
 function register(req, res, next) {
-  res.render("users/register", { title: "register" });
+  res.render("users/register", { title: "Register" });
 }
 
 function newUser(req, res, next) {
