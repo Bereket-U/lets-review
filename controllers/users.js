@@ -1,9 +1,17 @@
 const User = require("../models/user");
+const Product = require("../models/product");
 const bcrypt = require("bcryptjs");
 const passport = require("passport");
 
 function index(req, res, next) {
-  res.render("users/index", { username: req.user.name });
+  Product.find({}, function (err, products) {
+    console.log(products);
+    res.render("users/index", {
+      username: req.user.name,
+      test: "test",
+      products,
+    });
+  });
 }
 
 function login(req, res, next) {
