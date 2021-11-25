@@ -29,14 +29,14 @@ function addProduct(req, res, next) {
 // Create new product
 function create(req, res, next) {
   console.log(req.params.id);
-  console.log(req.body.image);
+  console.log(req.file);
   const userId = req.params.id;
   const product = new Product({
     name: req.body.name,
     price: req.body.price,
     category: req.body.category,
     discription: req.body.discription,
-    image: req.body.image,
+    image: `/images/${req.file.filename}`,
     userid: userId,
   });
   product.save(function (err) {
