@@ -1,46 +1,85 @@
-<%- include('../partials/users/header') %>
-<h1>View Product</h1>
+<%- include('../partials/users/header') %> <%-
+include('../partials/users/search') %>
+<h2>View Product</h2>
 <%= typeof message != 'undefined' ? message: '' %> <br />
-<a href="/users/products/delete/<%= product._id%>/<%= userId%>">Delete</a>
-<ul>
-  <li><%= product.name%></li>
-  <li><%= product.price%></li>
-  <li><%= product.category%></li>
-  <li><%= product.image%></li>
-  <li><%= product.discription%></li>
-</ul>
+<div class="container product">
+  <div class="img-box">
+    <a href="/users/products/<%= product._id%>/<%= userId%>">
+      <img class="product-img" src="<%= product.image%>" />
+    </a>
+  </div>
 
-<h1>Add reviews</h1>
+  <div>
+    <a href="/users/products/<%= product._id%>/<%= userId%>">
+      <figure>
+        <blockquote class="blockquote">
+          <p><%= product.name%></p>
+        </blockquote>
+        <figcaption class="blockquote-footer">
+          <%= product.updatedAt%>
+        </figcaption>
+      </figure>
+    </a>
 
-<form
-  method="post"
-  action="/users/products/review/<%= product._id%>/<%= userId%>"
->
-  <select name="rating">
-    <option value="">Rate</option>
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4">4</option>
-    <option value="5">5</option></select
-  ><br />
-  <textarea
-    name="comment"
-    id="comment"
-    placeholder="Please add your comment"
-  ></textarea
-  ><br />
+    <ul>
+      <li>Price: <%= product.price%> $</li>
+      <li>Category: <%= product.category%></li>
+      <li><%= product.discription%></li>
+    </ul>
+  </div>
+</div>
 
-  <button>Add Comment</button>
-</form>
+<h2>Add reviews</h2>
+<div class="container review">
+  <form
+    method="post"
+    action="/users/products/review/<%= product._id%>/<%= userId%>"
+  >
+    <select required name="rating">
+      <option value="">Rate</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
 
-<h1>Reviews</h1>
-
-<%product.reviews.forEach(function(review){ %>
-<ul>
-  <li><%= review.rating%></li>
-  <li><%= review.comment%></li>
-  <li><%= review.updatedAt%></li>
-</ul>
-
-<%})%> <%- include('../partials/users/footer') %>
+    <div class="form-floating">
+      <textarea
+        required
+        name="comment"
+        class="form-control"
+        placeholder="Leave a comment here"
+        id="floatingTextarea"
+      ></textarea>
+      <label for="floatingTextarea">Leave a comment here</label>
+    </div>
+    <br />
+    <button class="btn btn-outline-success">Add Comment</button>
+  </form>
+</div>
+<h2>Reviews</h2>
+<div class="container review">
+  <div class="table-responsive-sm">
+    <table class="table">
+      <thead>
+        <tr>
+          <th width="5%">Rating</th>
+          <th>Comments</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%product.reviews.forEach(function(review){ %>
+        <tr>
+          <td><%= review.rating%></td>
+          <td><%= review.comment%></td>
+          <td><%= review.updatedAt%></td>
+        </tr>
+        <%})%>
+      </tbody>
+    </table>
+  </div>
+</div>
+<br />
+<%- include('../partials/users/footer') %>

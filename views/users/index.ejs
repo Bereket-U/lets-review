@@ -29,7 +29,7 @@
         </ul>
 
         <form method="post" action="/users/products/review/<%= p._id%>/<%= userId%>">
-            <select name="rating">
+            <select required name="rating">
             <option value="">Rate</option>
             <option value="1">1</option>
             <option value="2">2</option>
@@ -39,7 +39,7 @@
             </select>
 
             <div class="form-floating">
-                <textarea name="comment" class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+                <textarea required name="comment" class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
                 <label for="floatingTextarea">Leave a comment here</label>
             </div>
             <br>

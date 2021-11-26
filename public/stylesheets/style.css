@@ -23,6 +23,22 @@ body {
   /* border: 1px solid; */
   align-items: center;
 }
+
+.container.review {
+  display: grid;
+  grid-template-columns: 4fr;
+  background-color: #f2f7f7;
+  width: 40%;
+  /* background-color: #f4fcfc; */
+
+  /* background-color: #f4fcfc; */
+  /* background-color: #f3fafa; */
+
+  /* background-color: #f4fcff; */
+  /* border: 1px solid; */
+  align-items: center;
+}
+
 .img-box {
   width: 90%;
   height: 90%;
@@ -60,4 +76,9 @@ a {
 }
 a:hover {
   color: black;
+}
+h1,
+h2,
+h3 {
+  text-align: center;
 }
