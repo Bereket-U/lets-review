@@ -3,7 +3,7 @@ include('../partials/users/search') %>
 
 <h2><%= title%></h2>
 
-<%= typeof message != 'undefined' ? message: '' %> <br />
+<p class="message"><%= typeof message != 'undefined' ? message: '' %></p>
 <% products.forEach(function(p){ %>
 <div class="container product">
   <div class="img-box">
