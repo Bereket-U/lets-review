@@ -23,13 +23,22 @@ router.get("/my/:id", ensureAuthenticated, productCtrl.myProduct);
 router.get("/add/:id", ensureAuthenticated, productCtrl.addProduct);
 
 /* POST create product  page. */
-router.post("/create/:id", upload.single("image"), productCtrl.create);
+router.post(
+  "/create/:id",
+  upload.single("image"),
+  ensureAuthenticated,
+  productCtrl.create
+);
 
 /* POST create product  page. */
-router.get("/delete/:id/:userId", productCtrl.deleteProduct);
+router.get(
+  "/delete/:id/:userId",
+  ensureAuthenticated,
+  productCtrl.deleteProduct
+);
 
 /* GET view product  page. */
 
-router.get("/:id/:userId", productCtrl.show);
+router.get("/:id/:userId", ensureAuthenticated, productCtrl.show);
 
 module.exports = router;
