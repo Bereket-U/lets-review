@@ -1,8 +1,36 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00B7FF;
+  color: #00b7ff;
+}
+
+.container.search {
+  padding-top: 10px;
+
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+}
+
+.form {
+  padding-top: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+input {
+  margin-bottom: 5px;
+}
+
+.form-button {
+  margin-top: 5px;
+  width: 100%;
+}
+
+.search {
+  width: 200px;
 }

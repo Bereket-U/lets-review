@@ -1,10 +1,31 @@
-<%- include('partials/header') %>
-<h1>Login</h1>
-<%- include('partials/registerMsg') %>
-<form action="/users/login" method="POST">
-  <%= typeof message != 'undefined' ? message: '' %> <br />
-  <input type="email" name="email" placeholder="Email" />
-  <input type="password" name="password" placeholder="Password" />
-  <button type="submit">Login</button>
-</form>
-<%- include('partials/footer') %>
+<%- include('partials/header') %> <%- include('partials/registerMsg') %> <%-
+include('partials/footer') %>
+<div class="form">
+  <div class="container-login text-center">
+    <h3>Please sign in</h3>
+    <form action="/users/login" method="POST">
+      <p><%= typeof message != 'undefined' ? message: '' %></p>
+      <input
+        class="form-control form-control-md"
+        type="email"
+        name="email"
+        placeholder="Email"
+      />
+      <input
+        class="form-control form-control-md"
+        type="password"
+        name="password"
+        placeholder="Password"
+      />
+
+      <label> <input type="checkbox" value="remember-me" /> Remember me </label>
+
+      <button class="btn btn-success form-button" type="submit">Login</button>
+
+      <p class="text-muted text-center">
+        <small>Do not have an account?</small>
+      </p>
+      <a class="btn btn-outline-success" href="register">Create an account</a>
+    </form>
+  </div>
+</div>

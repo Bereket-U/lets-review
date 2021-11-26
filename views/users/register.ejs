@@ -1,37 +1,52 @@
 <%- include('partials/header') %>
-<h1>Register</h1>
 
-<form action="/users/register" method="POST">
-  <%- include('partials/registerMsg') %> <br />
-  <input
-    type="text"
-    name="name"
-    value="<%= typeof name != 'undefined' ? name : '' %>"
-    placeholder="Name"
-    required
-  />
-  <br />
-  <input
-    type="email"
-    name="email"
-    value="<%= typeof email != 'undefined' ? email : '' %>"
-    placeholder="Email"
-    required
-  /><br />
-  <input
-    type="password"
-    name="password"
-    value="<%= typeof password != 'undefined' ? password : ''%>"
-    placeholder="Password"
-    required
-  /><br />
-  <input
-    type="password"
-    name="confirmPassword"
-    value="<%= typeof confirmPassword != 'undefined' ? confirmPassword : ''%>"
-    placeholder="Password"
-    required
-  /><br />
-  <button type="submit">Register</button>
-</form>
-<%- include('partials/footer') %>
+<div class="form">
+  <div class="container-login text-center">
+    <h3>Create New Account</h3>
+    <form action="/users/register" method="POST">
+      <%- include('partials/registerMsg') %> <br />
+      <input
+        class="form-control form-control-md"
+        type="text"
+        name="name"
+        value="<%= typeof name != 'undefined' ? name : '' %>"
+        placeholder="Name"
+        required
+      />
+
+      <input
+        class="form-control form-control-md"
+        type="email"
+        name="email"
+        value="<%= typeof email != 'undefined' ? email : '' %>"
+        placeholder="Email"
+        required
+      />
+      <input
+        class="form-control form-control-md"
+        type="password"
+        name="password"
+        value="<%= typeof password != 'undefined' ? password : ''%>"
+        placeholder="Password"
+        required
+      />
+      <input
+        class="form-control form-control-md"
+        type="password"
+        name="confirmPassword"
+        value="<%= typeof confirmPassword != 'undefined' ? confirmPassword : ''%>"
+        placeholder="Password"
+        required
+      />
+      <button class="btn btn-success form-button" type="submit">
+        Register
+      </button>
+
+      <p class="text-muted text-center">
+        <small>Already have an account?</small>
+      </p>
+      <a class="btn btn-outline-success" href="login">Login</a>
+    </form>
+    <%- include('partials/footer') %>
+  </div>
+</div>

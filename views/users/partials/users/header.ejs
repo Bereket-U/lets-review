@@ -11,24 +11,50 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
 
     <title>Document</title>
   </head>
   <body>
-    <ul>
-      <li><a href="/users/">Home</a></li>
-      <!-- <li><a href="/users/products/">My Products</a></li> -->
-      <li><a href="/users/logout"> Logout</a></li>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Let's Review</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarTogglerDemo02"
+          aria-controls="navbarTogglerDemo02"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/users/"
+                >Home</a
+              >
+            </li>
 
-      <a href="/users/products/add/<%= userId %>">Add Products</a>
-      <br />
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                href="/users/products/add/<%= userId %>"
+                >Add Product</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/users/products/my/<%= userId %>"
+                >My Products</a
+              >
+            </li>
+          </ul>
 
-      <a href="/users/products/my/<%= userId %>">My Products</a>
-    </ul>
-
-    <form action="/users/products/search/<%= userId%>" method="post">
-      <input type="text" name="search" /> <br />
-      <button type="submit">Search</button>
-    </form>
+          <a class="btn btn-outline-success" href="/users/logout">Logout</a>
+        </div>
+      </div>
+    </nav>
   </body>
 </html>
