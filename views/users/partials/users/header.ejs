@@ -31,5 +31,13 @@
         >My Products</a
       >
     </ul>
+
+    <form
+      action="/users/products/search/<%= typeof userId != 'undefined' ? userId: '' %>"
+      method="post"
+    >
+      <input type="text" name="search" /> <br />
+      <button type="submit">Search</button>
+    </form>
   </body>
 </html>

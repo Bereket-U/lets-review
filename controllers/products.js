@@ -71,7 +71,19 @@ function deleteProduct(req, res, next) {
     res.redirect(`/users/products/my/${req.params.userId}`);
   });
 }
-// View product
+// product search
+function search(req, res, next) {
+  const userId = req.params.userId;
+  Product.find({ name: req.body.search }, function (err, products) {
+    req.flash("message", "Search result . . . ");
+    res.render(`users/products/search`, {
+      title: "search",
+      message: req.flash("message"),
+      products,
+      userId,
+    });
+  });
+}
 
 module.exports = {
   myProduct,
@@ -79,4 +91,5 @@ module.exports = {
   create,
   show,
   deleteProduct,
+  search,
 };

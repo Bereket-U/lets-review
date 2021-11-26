@@ -1,0 +1,15 @@
+<%- include('../partials/users/header') %>
+<h1>search</h1>
+<%= typeof message != 'undefined' ? message: '' %> <br />
+
+<% products.forEach(function(p){ %>
+<ul>
+  <li><%= p.name%></li>
+  <li><%= p.price%></li>
+  <li><%= p.category%></li>
+  <li><%= p.image%></li>
+  <li><%= p.discription%></li>
+  <a href="/users/products/<%= p._id%>/<%= userId%>">View Product</a>
+</ul>
+
+<%})%> <%- include('../partials/users/footer') %>

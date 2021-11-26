@@ -39,6 +39,10 @@ router.get(
 
 /* GET view product  page. */
 
+router.post("/search/:userId", ensureAuthenticated, productCtrl.search);
+
+/* GET view product  page. */
+
 router.get("/:id/:userId", ensureAuthenticated, productCtrl.show);
 
 module.exports = router;

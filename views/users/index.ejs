@@ -1,6 +1,16 @@
 <%- include('partials/users/header') %>
 
 <h2>Welcome <%= username%></h2>
+
+<form
+  action="/users/products/search/<%= typeof userId != 'undefined' ? userId: '' %>"
+  method="post"
+>
+  <input type="text" name="search" /> <br />
+  <button type="submit">Search</button>
+</form>
+
+<br />
 <a href="/users/products/add/<%= typeof userId != 'undefined' ? userId: '' %>"
   >Add Products</a
 >
