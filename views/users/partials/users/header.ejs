@@ -20,22 +20,13 @@
       <!-- <li><a href="/users/products/">My Products</a></li> -->
       <li><a href="/users/logout"> Logout</a></li>
 
-      <a
-        href="/users/products/add/<%= typeof userId != 'undefined' ? userId: '' %>"
-        >Add Products</a
-      >
+      <a href="/users/products/add/<%= userId %>">Add Products</a>
       <br />
 
-      <a
-        href="/users/products/my/<%= typeof userId != 'undefined' ? userId: '' %>"
-        >My Products</a
-      >
+      <a href="/users/products/my/<%= userId %>">My Products</a>
     </ul>
 
-    <form
-      action="/users/products/search/<%= typeof userId != 'undefined' ? userId: '' %>"
-      method="post"
-    >
+    <form action="/users/products/search/<%= userId%>" method="post">
       <input type="text" name="search" /> <br />
       <button type="submit">Search</button>
     </form>
