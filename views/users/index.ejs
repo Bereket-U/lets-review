@@ -1,21 +1,6 @@
 <%- include('partials/users/header') %>
-
+<%- include('partials/users/search') %>
 <!-- <h2>Welcome <%= username%></h2> -->
-<div class="container search">
-  <div class="container-fluid">
-    <form
-      class="d-flex"
-      action="/users/products/search/<%= userId%>"
-      method="post">
-      <input
-        class="form-control me-2"
-        type="search"
-        name="search"
-        placeholder="Search"
-        aria-label="Search"/>
-    </form>
-  </div>
-</div>
 
 <% products.forEach(function(p){ %>
 
