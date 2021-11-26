@@ -1,20 +1,75 @@
 <%- include('partials/users/header') %>
 
-<h2>Welcome <%= username%></h2>
-
-<form action="/users/products/search/<%= userId%>" method="post">
-  <input type="text" name="search" /> <br />
-  <button type="submit">Search</button>
-</form>
+<!-- <h2>Welcome <%= username%></h2> -->
+<div class="container search">
+  <div class="container-fluid">
+    <form
+      class="d-flex"
+      action="/users/products/search/<%= userId%>"
+      method="post"
+    >
+      <input
+        class="form-control me-2"
+        type="search"
+        name="search"
+        placeholder="Search"
+        aria-label="Search"
+      />
+    </form>
+  </div>
+</div>
 
 <% products.forEach(function(p){ %>
-<ul>
-  <li><%= p.name%></li>
-  <li><%= p.price%></li>
-  <li><%= p.category%></li>
-  <img src="<%= p.image%>" />
-  <li><%= p.discription%></li>
-  <a href="/users/products/<%= p._id%>/<%= userId%>">View Product</a>
-</ul>
 
-<%})%> <%- include('partials/users/footer') %>
+<div class="container product">
+  <div class="img-box">
+    <a href="/users/products/<%= p._id%>/<%= userId%>">
+    <img class="product-img" src="<%= p.image%>" />
+    </a>
+  </div>
+
+  <div>
+    <a href="/users/products/<%= p._id%>/<%= userId%>">
+    <figure>
+        <blockquote class="blockquote">
+          <p> <%= p.name%></p>
+        </blockquote>
+        <figcaption class="blockquote-footer">
+            <%= p.updatedAt%> 
+        </figcaption>
+      </figure>
+    </a>
+    <ul>
+      <li>Price: <%= p.price%> $</li>
+      <li>Category: <%= p.category%></li>
+    
+    
+    </ul>
+
+<form
+  method="post"
+  action="/users/products/review/<%= p._id%>/<%= userId%>">
+
+
+
+  <select name="rating">
+    <option value="">Rate</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+
+  <div class="form-floating">
+    <textarea name="comment" class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+    <label for="floatingTextarea">Leave a comment here</label>
+  </div>
+  <br>
+  <button class="btn btn-outline-success">Add Comment</button>
+ </form>
+ </div>
+</div>
+<br>
+
+<%})%> <%- include('partials/users/footer') %> </br?>
