@@ -1,7 +1,7 @@
 <%- include('../partials/users/header') %>
+
 <h1><%= title%></h1>
 <%= typeof message != 'undefined' ? message: '' %> <br />
-<!-- <a href="/users/products/add">Add New Product</a> -->
 <% products.forEach(function(p){ %>
 <ul>
   <li><%= p.name%></li>
