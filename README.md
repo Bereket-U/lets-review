@@ -1,6 +1,6 @@
 # Lets Review<br>Full Stack Web App
 
-Lets Review is a full stack web app, Lets Review is a full stack web app, where users post their products and get review and feedbacks from their other users
+Lets Review is a full stack web app, Lets Review is a full stack web app, where users post their products and get review and feedbacks from their other users.
 
 ---
 
@@ -8,12 +8,15 @@ Lets Review is a full stack web app, Lets Review is a full stack web app, where 
 
 - HTML
 - CSS
+- EJS
 - JavaScript
-- NodeJS
-- Express
+- Node.js
+- Express.Js
 - MongoDB
 - Mongoose
 - Bootstrap
+
+---
 
 ## Added Features
 
