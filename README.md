@@ -1,6 +1,6 @@
 # Lets Review<br>Full Stack Web App
 
-Lets Review is a full stack web app, Lets Review is a full stack web app, where users post their products and get review and feedbacks from their other users.
+Lets Review is a full stack web app, where users post their products and get reviews and feedbacks from other users.
 
 ---
 
@@ -9,12 +9,14 @@ Lets Review is a full stack web app, Lets Review is a full stack web app, where 
 - HTML
 - CSS
 - EJS
+- Bootstrap
 - JavaScript
 - Node.js
 - Express.Js
 - MongoDB
 - Mongoose
-- Bootstrap
+- Heroku
+- Atlas
 
 ---
 
@@ -22,7 +24,7 @@ Lets Review is a full stack web app, Lets Review is a full stack web app, where 
 
 ### Registration / Login
 
-Users have to be registerd and loged in to get access and upload products.
+Users have to be registerd and login to get access and upload products.
 
 ### Add Product
 
@@ -44,6 +46,12 @@ Users can add reviews
 ### Delete Products
 
 Users can delete there products
+
+---
+
+### Edit Products
+
+Users can Edit there products
 
 ---
 
@@ -72,7 +80,7 @@ Users can delete there products
 
 ## **Getting Started**
 
-Here is a [Link](https://lets-review.herokuapp.com/users/login) to review! Enjoy!
+Here is a [Link](https://lets-review.herokuapp.com/users/login) to Let's review! Enjoy!
 
 ---
 
