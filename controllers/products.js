@@ -70,7 +70,6 @@ function edit(req, res, next) {
 }
 // Update product
 function update(req, res, next) {
-  console.log(req.body);
   Product.findByIdAndUpdate(
     req.params.id,
     {
