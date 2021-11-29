@@ -1,11 +1,66 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
-</html>
+<%- include('users/partials/header') %>
+
+<div class="container search">
+  <div class="container-fluid">
+    <form class="d-flex" action="/users/products/search/news" method="post">
+      <input
+        class="form-control me-2"
+        type="search"
+        name="search"
+        placeholder="Search"
+        aria-label="Search"
+      />
+    </form>
+  </div>
+</div>
+
+<% products.forEach(function(p){ %>
+
+<div class="container product">
+  <div class="img-box">
+    <a href="/users/products/<%= p._id%>/login">
+      <img class="product-img" src="<%= p.image%>" />
+    </a>
+  </div>
+
+  <div>
+    <a href="/users/products/<%= p._id%>/login">
+      <figure>
+        <blockquote class="blockquote">
+          <p><%= p.name%></p>
+        </blockquote>
+        <figcaption class="blockquote-footer"><%= p.updatedAt%></figcaption>
+      </figure>
+    </a>
+
+    <ul>
+      <li>Price: <%= p.price%> $</li>
+      <li>Category: <%= p.category%></li>
+    </ul>
+
+    <form method="post" action="/users/products/review/<%= p._id%>/login">
+      <select name="rating">
+        <option value="">Rate</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+
+      <div class="form-floating">
+        <textarea
+          name="comment"
+          class="form-control"
+          placeholder="Leave a comment here"
+          id="floatingTextarea"
+        ></textarea>
+        <label for="floatingTextarea">Leave a comment here</label>
+      </div>
+      <br />
+      <button class="btn btn-outline-success">Add Comment</button>
+    </form>
+  </div>
+</div>
+<br />
+<%})%>
