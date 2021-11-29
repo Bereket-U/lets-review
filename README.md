@@ -56,19 +56,19 @@ Users can delete there products
 
 ### Login Page
 
-![](images/login.png)
+![](images/readme/login.png)
 
 ### Home Page
 
-![](images/home.png)
+![](images/readme/home.png)
 
 ### Product View Page
 
-![](images/view.png)
+![](images/readme/view.png)
 
 ### Add Product Page
 
-![](images/add.png)
+![](images/readme/add.png)
 
 ## **Getting Started**
 
