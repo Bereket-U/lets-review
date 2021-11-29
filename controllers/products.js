@@ -4,10 +4,7 @@ const { param } = require("../routes");
 // All products
 function myProduct(req, res, next) {
   const userId = req.params.id;
-  //   console.log(userId);
   Product.find({ userid: userId }, function (err, products) {
-    // console.log(products);
-    // console.log(req.user.id);
     res.render("users/products/index", {
       title: "My Products",
       message: req.flash("message"),
@@ -28,8 +25,6 @@ function addProduct(req, res, next) {
 }
 // Create new product
 function create(req, res, next) {
-  console.log(req.params.id);
-  console.log(req.file);
   const userId = req.params.id;
   const product = new Product({
     name: req.body.name,
@@ -53,18 +48,53 @@ function create(req, res, next) {
 function show(req, res, next) {
   const userId = req.params.userId;
   Product.findById(req.params.id, function (err, product) {
-    console.log(product.reviews);
     res.render("users/products/show", {
       product,
       title: "View Product",
       userId,
     });
   });
-  //   res.send(req.params.id);
 }
+
+// Edit Product
+function edit(req, res, next) {
+  const userId = req.params.userId;
+  Product.findById(req.params.id, function (err, product) {
+    res.render("users/products/edit", {
+      product,
+      title: "Edit Product",
+      message: req.flash("message"),
+      userId,
+    });
+  });
+}
+// Update product
+function update(req, res, next) {
+  console.log(req.body);
+  Product.findByIdAndUpdate(
+    req.params.id,
+    {
+      name: req.body.name,
+      price: req.body.price,
+      category: req.body.category,
+      image: `/images/${req.file.filename}`,
+      discription: req.body.discription,
+    },
+    function (err) {
+      if (err) {
+        req.flash("message", "Please try again");
+      } else {
+        req.flash("message", "Your product has been Updated");
+        res.redirect(
+          `/users/products/edit/${req.params.id}/${req.params.userId}`
+        );
+      }
+    }
+  );
+}
+
+// Delete Product
 function deleteProduct(req, res, next) {
-  console.log(req.params.id);
-  console.log(req.params.userId);
   Product.deleteOne({ _id: req.params.id }, function (err) {
     if (err) return handleError(err);
     req.flash("message", "Your product has been deleted");
@@ -90,6 +120,8 @@ module.exports = {
   addProduct,
   create,
   show,
+  edit,
+  update,
   deleteProduct,
   search,
 };

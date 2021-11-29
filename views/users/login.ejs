@@ -1,9 +1,10 @@
-<%- include('partials/header') %> <%- include('partials/registerMsg') %>
+<%- include('partials/header') %>
 <div class="form">
   <div class="container-login text-center">
     <h3>Please sign in</h3>
+    <%- include('partials/registerMsg') %> <%= typeof message != 'undefined' ?
+    message: '' %>
     <form action="/users/login" method="POST">
-      <p><%= typeof message != 'undefined' ? message: '' %></p>
       <input
         class="form-control form-control-md"
         type="email"

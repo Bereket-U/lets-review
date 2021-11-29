@@ -1,0 +1,65 @@
+<%- include('../partials/users/header') %> <%-
+include('../partials/users/search') %><br />
+
+<div class="form">
+  <h2>Edit Product</h2>
+  <%= typeof message != 'undefined' ? message: '' %>
+  <div class="container-login text-center">
+    <form
+      method="post"
+      enctype="multipart/form-data"
+      action="/users/products/update/<%=product._id%>/<%=userId%>"
+    >
+      <input
+        class="form-control form-control-md"
+        type="text"
+        name="name"
+        placeholder="Product Name"
+        value="<%= product.name%>"
+        required
+      />
+      <br />
+      <input
+        class="form-control form-control-md"
+        type="number"
+        name="price"
+        placeholder="Product Price"
+        value="<%= product.price%>"
+        required
+      /><br />
+      <select class="form-control form-control-md" name="category" required>
+        <option value="<%= product.category%>"><%= product.category%></option>
+        <option value="Smartphone">Smartphone</option>
+        <option value="Tablet">Tablets</option>
+        <option value="Laptop">Laptop</option>
+        <option value="Desktop">Desktop</option>
+        <option value="Smart Tv">Smart Tv</option></select
+      ><br />
+      <img style="width: 200px" class="product-img" src="<%= product.image%>" />
+      <input
+        class="form-control form-control-md"
+        type="file"
+        name="image"
+        id="image"
+        value="<%= product.image%>"
+      /><br />
+      <textarea
+        class="form-control form-control-md"
+        name="discription"
+        id="discription"
+        placeholder="Please enter product discription"
+        required
+      >
+<%= product.discription%>
+      </textarea
+      ><br />
+
+      <button type="submit" class="btn btn-outline-success">
+        Update Product
+      </button>
+    </form>
+
+    <br />
+    <%- include('../partials/users/footer') %>
+  </div>
+</div>

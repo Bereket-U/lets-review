@@ -54,12 +54,18 @@ include('../partials/users/search') %>
       <button class="btn btn-outline-success">Add Comment</button>
       <br />
       <br />
-      <a
-        class="btn btn-outline-danger"
-        href="/users/products/delete/<%= p._id%>/<%= userId%>"
-        >Delete Product</a
-      >
     </form>
+    <a
+      class="btn btn-outline-danger"
+      href="/users/products/delete/<%= p._id%>/<%= userId%>"
+      >Delete Product</a
+    >
+
+    <a
+      class="btn btn-outline-warning"
+      href="/users/products/edit/<%= p._id%>/<%= userId%>"
+      >Edit Product</a
+    >
   </div>
 </div>
 <br />

@@ -41,6 +41,19 @@ router.get(
 
 router.post("/search/:userId", ensureAuthenticated, productCtrl.search);
 
+/* GET Edit product  page. */
+
+router.get("/edit/:id/:userId", ensureAuthenticated, productCtrl.edit);
+
+/* GET Update product. */
+
+router.post(
+  "/update/:id/:userId",
+  upload.single("image"),
+  ensureAuthenticated,
+  productCtrl.update
+);
+
 /* GET view product  page. */
 
 router.get("/:id/:userId", ensureAuthenticated, productCtrl.show);
