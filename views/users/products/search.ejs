@@ -1,15 +1,72 @@
 <%- include('../partials/users/header') %>
-<h1>search</h1>
-<%= typeof message != 'undefined' ? message: '' %> <br />
+</br>
+<h2>search</h2>
 
+<p class="message"><%= typeof message != 'undefined' ? message: '' %></p>
 <% products.forEach(function(p){ %>
-<ul>
-  <li><%= p.name%></li>
-  <li><%= p.price%></li>
-  <li><%= p.category%></li>
-  <li><%= p.image%></li>
-  <li><%= p.discription%></li>
-  <a href="/users/products/<%= p._id%>/<%= userId%>">View Product</a>
-</ul>
+<div class="container product">
+  <div class="img-box">
+    <a href="/users/products/<%= p._id%>/<%= userId%>">
+      <img class="product-img" src="<%= p.image%>" />
+    </a>
+  </div>
+
+  <div>
+    <a href="/users/products/<%= p._id%>/<%= userId%>">
+      <figure>
+        <blockquote class="blockquote">
+          <p><%= p.name%></p>
+        </blockquote>
+        <figcaption class="blockquote-footer"><%= p.updatedAt%></figcaption>
+      </figure>
+    </a>
+
+    <ul>
+      <li>Price: <%= p.price%> $</li>
+      <li>Category: <%= p.category%></li>
+    </ul>
+
+    <form
+      method="post"
+      action="/users/products/review/<%= p._id%>/<%= userId%>"
+    >
+      <select name="rating" required>
+        <option value="">Rate</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+
+      <div class="form-floating">
+        <textarea
+          name="comment"
+          class="form-control"
+          placeholder="Leave a comment here"
+          id="floatingTextarea"
+          required
+        ></textarea>
+        <label for="floatingTextarea">Leave a comment here</label>
+      </div>
+      <br />
+      <button class="btn btn-outline-success">Add Comment</button>
+      <br />
+      <br />
+    </form>
+    <a
+      class="btn btn-outline-danger"
+      href="/users/products/delete/<%= p._id%>/<%= userId%>"
+      >Delete Product</a
+    >
+
+    <a
+      class="btn btn-outline-warning"
+      href="/users/products/edit/<%= p._id%>/<%= userId%>"
+      >Edit Product</a
+    >
+  </div>
+</div>
+<br />
 
 <%})%> <%- include('../partials/users/footer') %>

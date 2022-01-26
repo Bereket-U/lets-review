@@ -3,8 +3,8 @@
 include('../partials/users/search') %>
 
 
-<div class="form">
-  <div class="container-login text-center">
+<div class="container form">
+
     <h2>Add New Product</h2>
   <%= typeof message != 'undefined' ? message: '' %> <br />
 
@@ -29,7 +29,8 @@ include('../partials/users/search') %>
 
     <button class="btn btn-outline-success">Add Product</button>
   </form>
-  <%- include('../partials/users/footer') %>
+
 </h1>
+
 </div>
-</div>
+<%- include('../partials/users/footer') %>
