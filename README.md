@@ -4,6 +4,10 @@ Lets Review is a full stack web app, where users post their products and get rev
 
 ---
 
+## **Getting Started**
+
+Here is a [Link](https://lets-review.herokuapp.com/) to Let's review!
+
 ## Technologies Used
 
 - HTML
@@ -16,7 +20,7 @@ Lets Review is a full stack web app, where users post their products and get rev
 - MongoDB
 - Mongoose
 - Heroku
-- Atlas
+- Mongodb Atlas
 
 ---
 
@@ -58,13 +62,23 @@ Users can Edit there products
 ## Screenshot
 
 - [Login Page](#login-Page)
+- [Registration Page](#registration-Page)
 - [Home Page](#home-page)
 - [Product View Page](#product-view-page)
 - [Add Product Page](#add-product-page)
 
+## iPhone 12 Pro - Screenshot
+
+- [Home Page](#home-page-mobile)
+- [Product View Page](#product-view-page-mobile)
+
 ### Login Page
 
 ![](images/readme/login.png)
+
+### Registration Page
+
+![](images/readme/registration.png)
 
 ### Home Page
 
@@ -78,9 +92,17 @@ Users can Edit there products
 
 ![](images/readme/add.png)
 
+### Home Page Mobile
+
+![](images/readme/home-mobile.png)
+
+### Product View Page Mobile
+
+![](images/readme/view-mobile.png)
+
 ## **Getting Started**
 
-Here is a [Link](https://lets-review.herokuapp.com/users/login) to Let's review! Enjoy!
+Here is a [Link](https://lets-review.herokuapp.com/) to Let's review! Enjoy!
 
 ---
 
